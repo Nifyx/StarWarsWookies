@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDD_STARWARSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attaque">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateDebut" Type="datetime" />
+    <Property Name="DateFin" Type="datetime" />
+    <Property Name="Victorieux" Type="bit" />
+    <Property Name="NbWookies" Type="int" />
+    <Property Name="NbDroides" Type="int" />
+    <Property Name="PlaneteID" Type="int" />
+  </EntityType>
+  <EntityType Name="Combat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vainqueur" Type="bit" Nullable="false" />
+    <Property Name="DateCombat" Type="datetime" Nullable="false" />
+    <Property Name="PointsDeVieWookie" Type="int" />
+    <Property Name="PointsDeVieDroide" Type="int" />
+    <Property Name="WookieID" Type="int" />
+    <Property Name="DroideID" Type="int" />
+    <Property Name="AttaqueID" Type="int" />
+  </EntityType>
+  <EntityType Name="Droide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Matricule" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateF" Type="datetime" Nullable="false" />
+    <Property Name="PointsDeVie" Type="int" Nullable="false" />
+    <Property Name="ModeleID" Type="int" />
+  </EntityType>
+  <EntityType Name="Modele">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libelle" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planete">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wookie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateN" Type="datetime" />
+    <Property Name="Sexe" Type="bit" />
+    <Property Name="PointsDeVie" Type="int" />
+    <Property Name="PlaneteID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Attaque__Planete__4865BE2A">
+    <End Role="Planete" Type="Self.Planete" Multiplicity="0..1" />
+    <End Role="Attaque" Type="Self.Attaque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planete">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attaque">
+        <PropertyRef Name="PlaneteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Combat__AttaqueI__4D2A7347">
+    <End Role="Attaque" Type="Self.Attaque" Multiplicity="0..1" />
+    <End Role="Combat" Type="Self.Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attaque">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="AttaqueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Combat__DroideID__4C364F0E">
+    <End Role="Droide" Type="Self.Droide" Multiplicity="0..1" />
+    <End Role="Combat" Type="Self.Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Droide">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="DroideID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Combat__WookieID__4B422AD5">
+    <End Role="Wookie" Type="Self.Wookie" Multiplicity="0..1" />
+    <End Role="Combat" Type="Self.Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wookie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="WookieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Droide__ModeleID__4A4E069C">
+    <End Role="Modele" Type="Self.Modele" Multiplicity="0..1" />
+    <End Role="Droide" Type="Self.Droide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modele">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Droide">
+        <PropertyRef Name="ModeleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wookie__PlaneteI__4959E263">
+    <End Role="Planete" Type="Self.Planete" Multiplicity="0..1" />
+    <End Role="Wookie" Type="Self.Wookie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planete">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wookie">
+        <PropertyRef Name="PlaneteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDD_STARWARSModelStoreContainer">
+    <EntitySet Name="Attaque" EntityType="Self.Attaque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Combat" EntityType="Self.Combat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Droide" EntityType="Self.Droide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modele" EntityType="Self.Modele" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planete" EntityType="Self.Planete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wookie" EntityType="Self.Wookie" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Attaque__Planete__4865BE2A" Association="Self.FK__Attaque__Planete__4865BE2A">
+      <End Role="Planete" EntitySet="Planete" />
+      <End Role="Attaque" EntitySet="Attaque" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Combat__AttaqueI__4D2A7347" Association="Self.FK__Combat__AttaqueI__4D2A7347">
+      <End Role="Attaque" EntitySet="Attaque" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Combat__DroideID__4C364F0E" Association="Self.FK__Combat__DroideID__4C364F0E">
+      <End Role="Droide" EntitySet="Droide" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Combat__WookieID__4B422AD5" Association="Self.FK__Combat__WookieID__4B422AD5">
+      <End Role="Wookie" EntitySet="Wookie" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Droide__ModeleID__4A4E069C" Association="Self.FK__Droide__ModeleID__4A4E069C">
+      <End Role="Modele" EntitySet="Modele" />
+      <End Role="Droide" EntitySet="Droide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wookie__PlaneteI__4959E263" Association="Self.FK__Wookie__PlaneteI__4959E263">
+      <End Role="Planete" EntitySet="Planete" />
+      <End Role="Wookie" EntitySet="Wookie" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

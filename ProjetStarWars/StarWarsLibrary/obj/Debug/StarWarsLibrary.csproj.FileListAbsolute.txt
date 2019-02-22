@@ -1,0 +1,10 @@
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\StarWarsLibrary.dll.config
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\StarWarsLibrary.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\StarWarsLibrary.pdb
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\EntityFramework.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\EntityFramework.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\obj\Debug\StarWarsLibrary.csprojResolveAssemblyReference.cache
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\obj\Debug\StarWarsLibrary.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\obj\Debug\StarWarsLibrary.pdb

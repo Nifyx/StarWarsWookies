@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDD_STARWARSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Modele">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Droide" Relationship="BDD_STARWARSModel.FK__Droide__ModeleID__2610A626" FromRole="Modele" ToRole="Droide" />
+  </EntityType>
+  <EntityType Name="Planete">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Wookie" Relationship="Self.FK__Wookie__PlaneteI__2EDAF651" FromRole="Planete" ToRole="Wookie" />
+    <NavigationProperty Name="Attaque" Relationship="BDD_STARWARSModel.FK__Attaque__Planete__681373AD" FromRole="Planete" ToRole="Attaque" />
+  </EntityType>
+  <EntityType Name="Wookie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateN" Type="DateTime" Precision="3" />
+    <Property Name="Sexe" Type="Boolean" />
+    <Property Name="PlaneteID" Type="Int32" />
+    <NavigationProperty Name="Planete" Relationship="Self.FK__Wookie__PlaneteI__2EDAF651" FromRole="Wookie" ToRole="Planete" />
+    <Property Name="PointsDeVie" Type="Int32" />
+    <NavigationProperty Name="Combat" Relationship="BDD_STARWARSModel.FK__Combat__WookieID__39237A9A" FromRole="Wookie" ToRole="Combat" />
+  </EntityType>
+  <Association Name="FK__Wookie__PlaneteI__2EDAF651">
+    <End Role="Planete" Type="Self.Planete" Multiplicity="0..1" />
+    <End Role="Wookie" Type="Self.Wookie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planete">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wookie">
+        <PropertyRef Name="PlaneteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDD_STARWARSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Modele" EntityType="Self.Modele" />
+    <EntitySet Name="Planete" EntityType="Self.Planete" />
+    <EntitySet Name="Wookie" EntityType="Self.Wookie" />
+    <AssociationSet Name="FK__Wookie__PlaneteI__2EDAF651" Association="Self.FK__Wookie__PlaneteI__2EDAF651">
+      <End Role="Planete" EntitySet="Planete" />
+      <End Role="Wookie" EntitySet="Wookie" />
+    </AssociationSet>
+    <EntitySet Name="Attaque" EntityType="BDD_STARWARSModel.Attaque" />
+    <AssociationSet Name="FK__Attaque__Planete__681373AD" Association="BDD_STARWARSModel.FK__Attaque__Planete__681373AD">
+      <End Role="Planete" EntitySet="Planete" />
+      <End Role="Attaque" EntitySet="Attaque" />
+    </AssociationSet>
+    <EntitySet Name="Droide" EntityType="BDD_STARWARSModel.Droide" />
+    <AssociationSet Name="FK__Droide__ModeleID__2610A626" Association="BDD_STARWARSModel.FK__Droide__ModeleID__2610A626">
+      <End Role="Modele" EntitySet="Modele" />
+      <End Role="Droide" EntitySet="Droide" />
+    </AssociationSet>
+    <EntitySet Name="Combat" EntityType="BDD_STARWARSModel.Combat" />
+    <AssociationSet Name="FK__Combat__AttaqueI__3B0BC30C" Association="BDD_STARWARSModel.FK__Combat__AttaqueI__3B0BC30C">
+      <End Role="Attaque" EntitySet="Attaque" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Combat__DroideID__3A179ED3" Association="BDD_STARWARSModel.FK__Combat__DroideID__3A179ED3">
+      <End Role="Droide" EntitySet="Droide" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Combat__WookieID__39237A9A" Association="BDD_STARWARSModel.FK__Combat__WookieID__39237A9A">
+      <End Role="Wookie" EntitySet="Wookie" />
+      <End Role="Combat" EntitySet="Combat" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attaque">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateDebut" Type="DateTime" Precision="3" />
+    <Property Name="DateFin" Type="DateTime" Precision="3" />
+    <Property Name="Victorieux" Type="Boolean" />
+    <Property Name="NbWookies" Type="Int32" />
+    <Property Name="NbDroides" Type="Int32" />
+    <Property Name="PlaneteID" Type="Int32" />
+    <NavigationProperty Name="Planete" Relationship="BDD_STARWARSModel.FK__Attaque__Planete__681373AD" FromRole="Attaque" ToRole="Planete" />
+    <NavigationProperty Name="Combat" Relationship="BDD_STARWARSModel.FK__Combat__AttaqueI__3B0BC30C" FromRole="Attaque" ToRole="Combat" />
+  </EntityType>
+  <Association Name="FK__Attaque__Planete__681373AD">
+    <End Type="BDD_STARWARSModel.Planete" Role="Planete" Multiplicity="0..1" />
+    <End Type="BDD_STARWARSModel.Attaque" Role="Attaque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planete">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attaque">
+        <PropertyRef Name="PlaneteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Droide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Matricule" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DateF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PointsDeVie" Type="Int32" Nullable="false" />
+    <Property Name="ModeleID" Type="Int32" />
+    <NavigationProperty Name="Modele" Relationship="BDD_STARWARSModel.FK__Droide__ModeleID__2610A626" FromRole="Droide" ToRole="Modele" />
+    <NavigationProperty Name="Combat" Relationship="BDD_STARWARSModel.FK__Combat__DroideID__3A179ED3" FromRole="Droide" ToRole="Combat" />
+  </EntityType>
+  <Association Name="FK__Droide__ModeleID__2610A626">
+    <End Type="BDD_STARWARSModel.Modele" Role="Modele" Multiplicity="0..1" />
+    <End Type="BDD_STARWARSModel.Droide" Role="Droide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modele">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Droide">
+        <PropertyRef Name="ModeleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Combat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vainqueur" Type="Boolean" Nullable="false" />
+    <Property Name="DateCombat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PointsDeVieWookie" Type="Int32" />
+    <Property Name="PointsDeVieDroide" Type="Int32" />
+    <Property Name="WookieID" Type="Int32" />
+    <Property Name="DroideID" Type="Int32" />
+    <Property Name="AttaqueID" Type="Int32" />
+    <NavigationProperty Name="Attaque" Relationship="BDD_STARWARSModel.FK__Combat__AttaqueI__3B0BC30C" FromRole="Combat" ToRole="Attaque" />
+    <NavigationProperty Name="Droide" Relationship="BDD_STARWARSModel.FK__Combat__DroideID__3A179ED3" FromRole="Combat" ToRole="Droide" />
+    <NavigationProperty Name="Wookie" Relationship="BDD_STARWARSModel.FK__Combat__WookieID__39237A9A" FromRole="Combat" ToRole="Wookie" />
+  </EntityType>
+  <Association Name="FK__Combat__AttaqueI__3B0BC30C">
+    <End Type="BDD_STARWARSModel.Attaque" Role="Attaque" Multiplicity="0..1" />
+    <End Type="BDD_STARWARSModel.Combat" Role="Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attaque">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="AttaqueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Combat__DroideID__3A179ED3">
+    <End Type="BDD_STARWARSModel.Droide" Role="Droide" Multiplicity="0..1" />
+    <End Type="BDD_STARWARSModel.Combat" Role="Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Droide">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="DroideID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Combat__WookieID__39237A9A">
+    <End Type="BDD_STARWARSModel.Wookie" Role="Wookie" Multiplicity="0..1" />
+    <End Type="BDD_STARWARSModel.Combat" Role="Combat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wookie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Combat">
+        <PropertyRef Name="WookieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

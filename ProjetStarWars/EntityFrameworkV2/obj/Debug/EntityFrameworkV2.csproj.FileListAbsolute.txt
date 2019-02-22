@@ -1,0 +1,9 @@
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFrameworkV2.exe
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFramework.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFrameworkV2.exe.config
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFramework.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\obj\Debug\EntityFrameworkV2.exe
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\obj\Debug\EntityFrameworkV2.pdb
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\EntityFrameworkV2\bin\Debug\EntityFrameworkV2.pdb

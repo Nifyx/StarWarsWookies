@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDD_STARWARSModelStoreContainer" CdmEntityContainer="BDD_STARWARSEntities">
+    <EntitySetMapping Name="Droide">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Droide">
+        <MappingFragment StoreEntitySet="Droide">
+          <ScalarProperty Name="PointsDeVie" ColumnName="PointsDeVie" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="DateF" ColumnName="DateF" />
+          <ScalarProperty Name="ModeleID" ColumnName="ModeleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modele">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Modele">
+        <MappingFragment StoreEntitySet="Modele">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planete">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Planete">
+        <MappingFragment StoreEntitySet="Planete">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wookie">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Wookie">
+        <MappingFragment StoreEntitySet="Wookie">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DateN" ColumnName="DateN" />
+          <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+          <ScalarProperty Name="PlaneteID" ColumnName="PlaneteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDD_STARWARSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Droide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Matricule" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DateF" Type="DateTime" Precision="3" />
+    <Property Name="PointsDeVie" Type="Int32" />
+    <Property Name="ModeleID" Type="Int32" />
+    <NavigationProperty Name="Modele" Relationship="Self.FK__Droide__ModeleID__2FCF1A8A" FromRole="Droide" ToRole="Modele" />
+  </EntityType>
+  <EntityType Name="Modele">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Droide" Relationship="Self.FK__Droide__ModeleID__2FCF1A8A" FromRole="Modele" ToRole="Droide" />
+  </EntityType>
+  <EntityType Name="Planete">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Wookie" Relationship="Self.FK__Wookie__PlaneteI__2EDAF651" FromRole="Planete" ToRole="Wookie" />
+  </EntityType>
+  <EntityType Name="Wookie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateN" Type="DateTime" Precision="3" />
+    <Property Name="Sexe" Type="Boolean" />
+    <Property Name="PlaneteID" Type="Int32" />
+    <NavigationProperty Name="Planete" Relationship="Self.FK__Wookie__PlaneteI__2EDAF651" FromRole="Wookie" ToRole="Planete" />
+  </EntityType>
+  <Association Name="FK__Droide__ModeleID__2FCF1A8A">
+    <End Role="Modele" Type="Self.Modele" Multiplicity="0..1" />
+    <End Role="Droide" Type="Self.Droide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modele">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Droide">
+        <PropertyRef Name="ModeleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wookie__PlaneteI__2EDAF651">
+    <End Role="Planete" Type="Self.Planete" Multiplicity="0..1" />
+    <End Role="Wookie" Type="Self.Wookie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planete">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Wookie">
+        <PropertyRef Name="PlaneteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDD_STARWARSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Droide" EntityType="Self.Droide" />
+    <EntitySet Name="Modele" EntityType="Self.Modele" />
+    <EntitySet Name="Planete" EntityType="Self.Planete" />
+    <EntitySet Name="Wookie" EntityType="Self.Wookie" />
+    <AssociationSet Name="FK__Droide__ModeleID__2FCF1A8A" Association="Self.FK__Droide__ModeleID__2FCF1A8A">
+      <End Role="Modele" EntitySet="Modele" />
+      <End Role="Droide" EntitySet="Droide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wookie__PlaneteI__2EDAF651" Association="Self.FK__Wookie__PlaneteI__2EDAF651">
+      <End Role="Planete" EntitySet="Planete" />
+      <End Role="Wookie" EntitySet="Wookie" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

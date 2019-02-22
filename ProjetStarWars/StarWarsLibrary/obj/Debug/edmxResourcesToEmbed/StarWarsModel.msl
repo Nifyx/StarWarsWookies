@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDD_STARWARSModelStoreContainer" CdmEntityContainer="BDD_STARWARSEntities">
+    <EntitySetMapping Name="Modele">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Modele">
+        <MappingFragment StoreEntitySet="Modele">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planete">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Planete">
+        <MappingFragment StoreEntitySet="Planete">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wookie">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Wookie">
+        <MappingFragment StoreEntitySet="Wookie">
+          <ScalarProperty Name="PointsDeVie" ColumnName="PointsDeVie" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DateN" ColumnName="DateN" />
+          <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+          <ScalarProperty Name="PlaneteID" ColumnName="PlaneteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attaque">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Attaque">
+        <MappingFragment StoreEntitySet="Attaque">
+          <ScalarProperty Name="PlaneteID" ColumnName="PlaneteID" />
+          <ScalarProperty Name="NbDroides" ColumnName="NbDroides" />
+          <ScalarProperty Name="NbWookies" ColumnName="NbWookies" />
+          <ScalarProperty Name="Victorieux" ColumnName="Victorieux" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Droide">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Droide">
+        <MappingFragment StoreEntitySet="Droide">
+          <ScalarProperty Name="ModeleID" ColumnName="ModeleID" />
+          <ScalarProperty Name="PointsDeVie" ColumnName="PointsDeVie" />
+          <ScalarProperty Name="DateF" ColumnName="DateF" />
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Combat">
+      <EntityTypeMapping TypeName="BDD_STARWARSModel.Combat">
+        <MappingFragment StoreEntitySet="Combat">
+          <ScalarProperty Name="AttaqueID" ColumnName="AttaqueID" />
+          <ScalarProperty Name="DroideID" ColumnName="DroideID" />
+          <ScalarProperty Name="WookieID" ColumnName="WookieID" />
+          <ScalarProperty Name="PointsDeVieDroide" ColumnName="PointsDeVieDroide" />
+          <ScalarProperty Name="PointsDeVieWookie" ColumnName="PointsDeVieWookie" />
+          <ScalarProperty Name="DateCombat" ColumnName="DateCombat" />
+          <ScalarProperty Name="Vainqueur" ColumnName="Vainqueur" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,8 @@
+2019-02-20 09:59:56,115 INFO [7] Program - Running as AD\apluchon2017
+2019-02-20 09:59:56,150 ERROR [7] Program - This will appear in red in the console and still be written to file!
+2019-02-20 10:00:07,405 INFO [9] Program - Running as AD\apluchon2017
+2019-02-20 10:00:07,438 ERROR [9] Program - This will appear in red in the console and still be written to file!
+2019-02-20 10:00:59,124 INFO [1] Program - Running as AD\apluchon2017
+2019-02-20 10:00:59,150 ERROR [1] Program - This will appear in red in the console and still be written to file!
+2019-02-20 11:20:21,811 INFO [1] Program - Running as AD\apluchon2017
+2019-02-20 11:20:21,834 ERROR [1] Program - This will appear in red in the console and still be written to file!

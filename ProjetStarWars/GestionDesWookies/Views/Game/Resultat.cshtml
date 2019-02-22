@@ -1,0 +1,74 @@
+﻿@model StarWarsLibrary.Attaque
+
+@{
+    ViewBag.Title = "Resultat";
+    StarWarsLibrary.Planete p = ViewBag.planete;
+}
+
+<h2>Resultat</h2>
+
+<div>
+    <h4>Attaque sur @p.Nom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFin)
+        </dd>
+
+        <dt>
+            <b>L'équipe victorieuse est celle des : </b>
+        </dt>
+
+        <dd>
+            @if ((bool)Model.Victorieux)
+            {
+                <span>Droides !!!!!</span>
+            }
+            else
+            {
+                <span>Wookies !!!!!</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbWookies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbWookies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbDroides)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbDroides)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaneteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaneteID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

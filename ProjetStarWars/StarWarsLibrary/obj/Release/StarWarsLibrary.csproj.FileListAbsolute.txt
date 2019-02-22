@@ -1,0 +1,9 @@
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\StarWarsLibrary.dll.config
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\StarWarsLibrary.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\StarWarsLibrary.pdb
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\EntityFramework.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\EntityFramework.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\obj\Release\StarWarsLibrary.dll
+C:\Users\apluchon2017\Documents\Visual Studio 2015\Projects\ProjetStarWars\StarWarsLibrary\obj\Release\StarWarsLibrary.pdb

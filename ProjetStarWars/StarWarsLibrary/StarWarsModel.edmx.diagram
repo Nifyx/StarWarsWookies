@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81a29c5da45342a3aa0cfdfd907a3586" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Modele" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Planete" Width="1.5" PointX="7.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Wookie" Width="1.5" PointX="5.375" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Wookie__PlaneteI__2EDAF651" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Attaque" Width="1.5" PointX="7.375" PointY="5.5" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Attaque__Planete__681373AD" />
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Droide" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Droide__ModeleID__2610A626" />
+        <EntityTypeShape EntityType="BDD_STARWARSModel.Combat" Width="1.5" PointX="5.25" PointY="5.25" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Combat__AttaqueI__3B0BC30C" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Combat__DroideID__3A179ED3" />
+        <AssociationConnector Association="BDD_STARWARSModel.FK__Combat__WookieID__39237A9A" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach (var wookie in this.ViewBag.listeWookies) {
+    <div>
+        <h1>@wookie.Nom</h1>
+        <span>@wookie.ToString()</span>
+    </div>
+}

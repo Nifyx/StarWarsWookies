@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDD_STARWARSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Droide">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Matricule" Type="varchar" MaxLength="10" />
+          <Property Name="DateF" Type="datetime" />
+          <Property Name="ModeleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Modele">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Planete">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wookie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateN" Type="datetime" />
+          <Property Name="Sexe" Type="bit" />
+          <Property Name="PlaneteID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Droide__ModeleID__1EA48E88">
+          <End Role="Modele" Type="Self.Modele" Multiplicity="0..1" />
+          <End Role="Droide" Type="Self.Droide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modele">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Droide">
+              <PropertyRef Name="ModeleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wookie__PlaneteI__1DB06A4F">
+          <End Role="Planete" Type="Self.Planete" Multiplicity="0..1" />
+          <End Role="Wookie" Type="Self.Wookie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planete">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Wookie">
+              <PropertyRef Name="PlaneteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDD_STARWARSModelStoreContainer">
+          <EntitySet Name="Droide" EntityType="Self.Droide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modele" EntityType="Self.Modele" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planete" EntityType="Self.Planete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wookie" EntityType="Self.Wookie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Droide__ModeleID__1EA48E88" Association="Self.FK__Droide__ModeleID__1EA48E88">
+            <End Role="Modele" EntitySet="Modele" />
+            <End Role="Droide" EntitySet="Droide" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wookie__PlaneteI__1DB06A4F" Association="Self.FK__Wookie__PlaneteI__1DB06A4F">
+            <End Role="Planete" EntitySet="Planete" />
+            <End Role="Wookie" EntitySet="Wookie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDD_STARWARSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Droide">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Matricule" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateF" Type="DateTime" Precision="3" />
+          <Property Name="ModeleID" Type="Int32" />
+          <NavigationProperty Name="Modele" Relationship="Self.FK__Droide__ModeleID__1EA48E88" FromRole="Droide" ToRole="Modele" />
+        </EntityType>
+        <EntityType Name="Modele">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Droide" Relationship="Self.FK__Droide__ModeleID__1EA48E88" FromRole="Modele" ToRole="Droide" />
+        </EntityType>
+        <EntityType Name="Planete">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Wookie" Relationship="Self.FK__Wookie__PlaneteI__1DB06A4F" FromRole="Planete" ToRole="Wookie" />
+        </EntityType>
+        <EntityType Name="Wookie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDeNaissance" Type="DateTime" Precision="3" />
+          <Property Name="Sexe" Type="Boolean" />
+          <Property Name="PlaneteID" Type="Int32" />
+          <NavigationProperty Name="Planete" Relationship="Self.FK__Wookie__PlaneteI__1DB06A4F" FromRole="Wookie" ToRole="Planete" />
+        </EntityType>
+        <Association Name="FK__Droide__ModeleID__1EA48E88">
+          <End Role="Modele" Type="Self.Modele" Multiplicity="0..1" />
+          <End Role="Droide" Type="Self.Droide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modele">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Droide">
+              <PropertyRef Name="ModeleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wookie__PlaneteI__1DB06A4F">
+          <End Role="Planete" Type="BDD_STARWARSModel.Planete" Multiplicity="0..1" />
+          <End Role="Wookie" Type="Self.Wookie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planete">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Wookie">
+              <PropertyRef Name="PlaneteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDD_STARWARSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Droide" EntityType="Self.Droide" />
+          <EntitySet Name="Modele" EntityType="Self.Modele" />
+          <EntitySet Name="Planete" EntityType="BDD_STARWARSModel.Planete" />
+          <EntitySet Name="Wookie" EntityType="Self.Wookie" />
+          <AssociationSet Name="FK__Droide__ModeleID__1EA48E88" Association="Self.FK__Droide__ModeleID__1EA48E88">
+            <End Role="Modele" EntitySet="Modele" />
+            <End Role="Droide" EntitySet="Droide" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wookie__PlaneteI__1DB06A4F" Association="Self.FK__Wookie__PlaneteI__1DB06A4F">
+            <End Role="Planete" EntitySet="Planete" />
+            <End Role="Wookie" EntitySet="Wookie" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDD_STARWARSModelStoreContainer" CdmEntityContainer="BDD_STARWARSEntities">
+          <EntitySetMapping Name="Droide">
+            <EntityTypeMapping TypeName="BDD_STARWARSModel.Droide">
+              <MappingFragment StoreEntitySet="Droide">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+                <ScalarProperty Name="DateF" ColumnName="DateF" />
+                <ScalarProperty Name="ModeleID" ColumnName="ModeleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modele">
+            <EntityTypeMapping TypeName="BDD_STARWARSModel.Modele">
+              <MappingFragment StoreEntitySet="Modele">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planete">
+            <EntityTypeMapping TypeName="BDD_STARWARSModel.Planete">
+              <MappingFragment StoreEntitySet="Planete">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wookie">
+            <EntityTypeMapping TypeName="BDD_STARWARSModel.Wookie">
+              <MappingFragment StoreEntitySet="Wookie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="DateDeNaissance" ColumnName="DateN" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="PlaneteID" ColumnName="PlaneteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
